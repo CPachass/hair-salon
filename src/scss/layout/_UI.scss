@@ -1,0 +1,37 @@
+@use 'helpers/variables' as v;
+@use 'helpers/mixins' as m;
+
+.container-app {
+
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        min-height: 100vh;
+    }
+
+    .image {
+        height: 20rem;
+        @include m.tablet {
+            height: auto;
+        }
+        background-image: url('../img/1.jpg');   
+        background-size: cover;
+        background-position: center center;     
+    }
+
+    .app {
+        width: 95%;
+        margin: 0 auto;
+        padding: 3rem 0;
+    }
+
+    .page-name {
+        text-align: center;
+        margin: 5rem 0;
+        font-weight: v.$bold;
+    }
+
+    .page-description {
+        text-align: center;
+    }
+}
