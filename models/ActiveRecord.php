@@ -9,8 +9,8 @@ abstract class ActiveRecord
     protected static $column_db = [];
     protected static $table = '';
     
-    //Errors
-    protected static $errors = [];
+    //Alerts
+    protected static $alerts = [];
     
     public static function setDB($database)
     {
@@ -40,7 +40,7 @@ abstract class ActiveRecord
 
         $result = self::$db->query($query);
         if ($result) {
-            header('Location: /admin?message=1');
+            header('Location: /message');
         }
     }
 
@@ -61,9 +61,9 @@ abstract class ActiveRecord
         $query .= " LIMIT 1 ";
 
         $result = self::$db->query($query);
-        if ($result) {
-            header('Location: /admin?message=2');
-        }
+        // if ($result) {
+        //     header('Location: /');
+        // }
     }
 
     public function delete(): void
@@ -99,15 +99,20 @@ abstract class ActiveRecord
         return $sanitized;
     }
 
-    public static function getErrors()
+    public static function getAlerts()
     {
-        return static::$errors;
+        return static::$alerts;
+    }
+
+    public static function setAlert($type, $message) 
+    {
+        static::$alerts[$type][] = $message;
     }
 
     public function valid()
     {
-        static::$errors = [];
-        return static::$errors;
+        static::$alerts = [];
+        return static::$alerts;
     }
 
     public static function all()

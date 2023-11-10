@@ -1,0 +1,6 @@
+@use 'helpers/variables' as v;
+@use 'helpers/mixins' as m;
+
+.button {
+    @include m.button(v.$blue, v.$white);
+}

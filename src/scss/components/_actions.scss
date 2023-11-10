@@ -1,0 +1,17 @@
+@use 'helpers/variables' as v;
+@use 'helpers/mixins' as m;
+
+.actions {
+    margin-top: v.$gap;
+    @include m.tablet {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    a {
+        color: v.$white;
+        display: block;
+        margin-bottom: calc(v.$gap / 2);
+        text-align: center;
+    }
+}

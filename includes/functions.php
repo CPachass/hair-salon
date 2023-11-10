@@ -1,6 +1,6 @@
 <?php 
 // Debug an object and stops execution
-function debug(String $object) : void
+function debug($object) : void
 {
     echo "<pre>";
     var_dump($object);
